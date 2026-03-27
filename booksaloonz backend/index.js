@@ -1,4 +1,5 @@
-require('dotenv').config();
+const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, '.env') });
 const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
@@ -27,7 +28,12 @@ app.use('/api/', limiter);
 
 // CORS
 app.use(cors({
-    origin: process.env.CLIENT_URL || 'http://localhost:5173',
+    origin: [
+        process.env.CLIENT_URL,
+        'http://localhost:5173',
+        'http://localhost:3000',
+        /\.netlify\.app$/  // ✅ Allows any Netlify deployment URL
+    ].filter(Boolean),
     credentials: true
 }));
 
@@ -47,6 +53,8 @@ app.use('/api/payments', require('./routes/paymentRoutes'));
 app.use('/api/orders', require('./routes/orderRoutes'));
 app.use('/api/hairstyle', require('./routes/hairStyleRoutes'));
 app.use('/api/ai', require('./routes/aiRoutes'));
+const hairTrackerRoute = require("./routes/hairTracker");
+app.use("/api/hairtracker", hairTrackerRoute);
 
 // Default Route
 app.get('/', (req, res) => {
@@ -70,3 +78,4 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log(`🚀 Server running on port ${PORT} in ${process.env.NODE_ENV || 'development'} mode`);
 });
+ 

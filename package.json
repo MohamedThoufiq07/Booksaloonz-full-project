@@ -3,8 +3,10 @@
     "version": "1.0.0",
     "description": "Root for BookSaloonz Project",
     "scripts": {
-        "install-all": "npm install && cd server && npm install && cd ../booksaloon && npm install",
-        "dev": "npx concurrently \"npm run dev --prefix server\" \"npm run dev --prefix booksaloon\""
+        "install-all": "npm install && npm install --prefix \"booksaloonz backend\" && npm install --prefix \"booksaloons frontend\"",
+        "backend": "npm run dev --prefix \"booksaloonz backend\"",
+        "frontend": "npm run dev --prefix \"booksaloons frontend\"",
+        "dev": "npx concurrently \"npm run backend\" \"npm run frontend\""
     },
     "devDependencies": {
         "concurrently": "^8.2.1"
