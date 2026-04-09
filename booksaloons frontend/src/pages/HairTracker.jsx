@@ -94,7 +94,7 @@ const HairTracker = () => {
     };
 
     return (
-        <div className="ai-tool-container" style={{ minHeight: '100vh', background: 'transparent', padding: '120px 20px', color: 'white', fontFamily: "'Outfit', sans-serif" }}>
+        <div className="ai-tool-container" style={{ minHeight: '100vh', background: 'transparent', padding: '60px 20px', color: 'white', fontFamily: "'Outfit', sans-serif" }}>
             <div style={{ maxWidth: '1200px', margin: '0 auto', textAlign: 'center' }}>
                 <h1 style={{ color: '#00f2ea', fontSize: '3rem', fontWeight: '900', marginBottom: '40px', textTransform: 'uppercase' }}>AI Hair Tracker</h1>
 
