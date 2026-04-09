@@ -6,7 +6,8 @@
         "install-all": "npm install && npm install --prefix \"booksaloonz backend\" && npm install --prefix \"booksaloons frontend\"",
         "backend": "npm run dev --prefix \"booksaloonz backend\"",
         "frontend": "npm run dev --prefix \"booksaloons frontend\"",
-        "dev": "npx concurrently \"npm run backend\" \"npm run frontend\""
+        "dev": "npx concurrently \"npm run backend\" \"npm run frontend\"",
+        "download-models": "node scripts/downloadModels.js"
     },
     "devDependencies": {
         "concurrently": "^8.2.1"
